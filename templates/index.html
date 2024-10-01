@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Conversation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- Add the Bootstrap Icons CDN for other icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.3/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <h1 class="strong-heading">Comm AI</h1>
+    </div>
+
+    <div class="option-container">
+        <!-- Text Option -->
+        <div class="option">
+            <div class="icon">
+                <img src="{{ url_for('static', filename='img/chat.png') }}" alt="Text Icon" class="option-icon">
+            </div>
+            <p class="option-description">Start a text-based conversation</p>
+            <button class="option-button" onclick="window.location.href='/text'">
+                 Text
+            </button>
+        </div>
+    
+        <!-- Speech Option -->
+        <div class="option">
+            <div class="icon">
+                <img src="{{ url_for('static', filename='img/mic.png') }}" alt="Speech Icon" class="option-icon">
+            </div>
+            <p class="option-description">Start a voice-based conversation</p>
+            <button class="option-button" onclick="window.location.href='/speech'">
+                 Speech
+            </button>
+        </div>
+    </div>
+    
+</body>
+</html>
