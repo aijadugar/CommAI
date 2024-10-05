@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Interface</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="header">
+        <h1 class="strong-heading">Comm AI</h1>
+    </div>
+    
+    <div class="chat-container">
+        <div class="chat-box" id="chatBox">
+            <!-- Chat messages will be appended here -->
+        </div>
+    </div>
+    <div class="input-container">
+        <div class="input-box">
+            <textarea id="userInput" placeholder="Type your response here..." oninput="adjustInputHeight()" onkeypress="checkEnter(event)"></textarea>
+            <!-- Send Button with Icon Only -->
+        <button class="send-button" onclick="sendMessage()">
+            <img src="{{ url_for('static', filename='img/send.png') }}" alt="Send Icon" class="send-icon">
+        </button>
+
+        </div>
+    </div>
+    <button class="submit-button" onclick="submitConversation()">Submit Conversation</button>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>

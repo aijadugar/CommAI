@@ -1,0 +1,633 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0; /*increasing some space between text and circular progress bar*/
+    background: linear-gradient(135deg, #e4b1c4, #b6e1f4);
+    background-attachment: fixed; /* Optional: makes the background fixed */
+}
+
+/* Header */
+.header {
+    width: 100%; /* Use full width for mobile */
+    background-color: #dde6f1;
+    padding: 20px;
+    text-align: left;
+    position: fixed; /* Fix the navbar at the top */
+    top: 0; /*keeping the navbar at top*/
+    z-index: 1000; /* Make sure the navbar stays on top of other content */
+}
+
+/* Mobile-specific styles using media queries */
+@media (max-width: 768px) {
+    .header {
+        padding: 15px; /* Slightly smaller padding for mobile */
+    }
+    .header-spacing {
+        height: 60px; /* Adjust for smaller header height on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 10px; /* Even smaller padding for very small screens */
+    }
+    .header-spacing {
+        height: 50px; /* Adjust for smaller header height on smaller screens */
+    }
+}
+
+/* Classic Heading Style */
+.header h1 {
+    font-size: 30px; /* Set the font size */
+    color: #333; /* Set text color */
+    margin: 0; /* Remove default margin from top and down of Comm AI */
+    text-align: left; /* Align text to the left */
+    font-family: 'Georgia', serif; /* Classic serif font */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/*extra coding*/
+.clarity-wrapper {
+    display: flex;
+    align-items: center; /*for bringing the circular progress bar from top to the level at which clarity text is present*/
+    justify-content: space-between;  /*if you remove this circular progress will get closer to the text*/
+    padding: 20px; /* Add padding for spacing */
+    margin-bottom: 20px;
+}
+
+.clarity-info {
+    width: 60%;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.clarity-info h4 {
+    font-size: 20px; /* Heading size */
+    margin-bottom: 10px; /* Space below heading */
+}
+
+.clarity-info p {
+    font-size: 16px; /* Classic text size */
+    line-height: 1.5; /* Better readability */
+}
+
+#clarityPercentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+.conciseness-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px; /* Add padding for spacing */
+    margin-bottom: 20px;
+}
+
+.conciseness-info {
+    width: 60%;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.conciseness-info h4 {
+    font-size: 20px; /* Heading size */
+    margin-bottom: 10px; /* Space below heading */
+}
+
+.conciseness-info p {
+    font-size: 16px; /* Classic text size */
+    line-height: 1.5; /* Better readability */
+}
+
+#concisenessPercentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+.sentiment-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px; /* Add padding for spacing */
+    margin-bottom: 20px;
+}
+
+.sentiment-info {
+    width: 60%;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.sentiment-info h4 {
+    font-size: 20px; /* Heading size */
+    margin-bottom: 10px; /* Space below heading */
+}
+
+.sentiment-info p {
+    font-size: 16px; /* Classic text size */
+    line-height: 1.5; /* Better readability */
+}
+
+#tone\&sentimentPercentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+.engagement-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px; /* Add padding for spacing */
+    margin-bottom: 20px;
+}
+
+.engagement-info {
+    width: 60%;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.engagement-info h4 {
+    font-size: 20px; /* Heading size */
+    margin-bottom: 10px; /* Space below heading */
+}
+
+.engagement-info p {
+    font-size: 16px; /* Classic text size */
+    line-height: 1.5; /* Better readability */
+}
+
+#engagementPercentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+.vocabulary-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px; /* Add padding for spacing */
+    margin-bottom: 20px;
+}
+
+.vocabulary-info {
+    width: 60%;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.vocabulary-info h4 {
+    font-size: 20px; /* Heading size */
+    margin-bottom: 10px; /* Space below heading */
+}
+
+.vocabulary-info p {
+    font-size: 16px; /* Classic text size */
+    line-height: 1.5; /* Better readability */
+}
+
+#vocabularyPercentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.politeness-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px; /* Add padding for spacing */
+    margin-bottom: 20px;
+}
+
+.politeness-info {
+    width: 60%;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.politeness-info h4 {
+    font-size: 20px; /* Heading size */
+    margin-bottom: 10px; /* Space below heading */
+}
+
+.politeness-info p {
+    font-size: 16px; /* Classic text size */
+    line-height: 1.5; /* Better readability */
+}
+
+#politenessPercentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+/*G&S*/
+.grammar-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px; /* Add padding for spacing */
+    margin-bottom: 20px; /* Space below this section */
+}
+
+.grammar-info {
+    width: 60%;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.grammar-info h4 {
+    font-size: 20px; /* Heading size */
+    margin-bottom: 10px; /* Space below heading */
+}
+
+.grammar-info p {
+    font-size: 16px; /* Classic text size */
+    line-height: 1.5; /* Better readability */
+    margin-bottom: 10px; /* Space below paragraphs */
+}
+
+#grammar\&spellingPercentage { /*escaping the & character using \ slash*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    font-weight: bold; /* Make percentage stand out */
+}
+
+/*G&S*/
+
+/*Errors*/
+.detected-errors {
+    border: 3px solid #aaa; /* Slightly darker gray for better contrast */
+    border-radius: 8px; /* Softer, more rounded corners */
+    padding: 20px; /* More padding for better spacing */
+    background: linear-gradient(135deg, #e4b1c4, #b6e1f4); /* Light khaki to light coral gradient */
+/* Darker gradient for a more classic, professional look */
+    font-family: 'Times New Roman', Times, serif; /* Keep classic font */
+    color: #333; /* Darker text color for better readability */
+    font-size: 18px; /* Set consistent font size */
+}
+
+.detected-errors h5 {
+    font-size: 22px; /* Increase subheading font size for better visibility */
+    margin-bottom: 15px; /* Add more space below subheading */
+    font-weight: bold; /* Emphasize subheading */
+    color: #333; /* Keep subheading color readable and consistent */
+}
+
+.detected-errors ul {
+    padding-left: 25px; /* Add more indent for better list alignment */
+    margin-bottom: 15px; /* Space below the list */
+}
+
+.detected-errors li {
+    margin-bottom: 12px; /* Increase space between list items slightly */
+    line-height: 1.6; /* Further improve readability */
+    font-size: 17px; /* Slightly decrease the size of list items for balance */
+    color: #444; /* Use medium-dark gray for list text */
+}
+
+.detected-errors strong {
+    color: #222; /* Make strong text a darker shade of black for emphasis */
+    font-weight: bold;
+}
+
+.highlight {
+    font-weight: bold; /* Keep highlighted text bold */
+    color: #d9534f; /* Change highlight color to a visible red for emphasis */
+    background-color: #fdf5e6; /* Add light background for highlights */
+    padding: 2px 5px; /* Add padding around the highlighted text */
+    border-radius: 3px; /* Slight rounding for the highlight box */
+    text-decoration: none; /* Remove underline for cleaner look */
+}
+
+
+/*extra coding*/
+
+/* Results container */
+.results-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 90%;
+    margin: auto;
+    margin-top: 40px; /* Adds space for content below the navbar */
+}
+
+/* Heading styling */
+.results-container h1 {
+    margin-bottom: 20px;
+    font-size: 2em; /* Larger heading for prominence */
+    color: #333; /* Classic dark color */
+    text-align: center;
+    font-family: 'Georgia', serif; /* Classic serif font */
+    margin-top: 30px; /* Adjust margin for spacing from the navbar */
+}
+
+/* Button styling */
+.results-container button {
+    padding: 12px 30px;
+    font-size: 16px;
+    border: 1px solid #414141; /* Classic border color */
+    border-radius: 5px; /* Slightly rounded corners */
+    cursor: pointer;
+    background-color: #000;
+    color: white;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-family: 'Arial', sans-serif; /* Clean sans-serif font */
+}
+
+.results-container button:hover {
+    background-color: #333; /* Darker black on hover */
+    transform: scale(1.05);
+}
+
+/* Progress Circle Styles */
+.container {
+    position: relative;
+    display: flex;
+    
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.break {
+    width: 100%;
+}
+
+.container .progress {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    color: #fff;
+    background: #444 linear-gradient(to right, transparent 50%, var(--clr) 0);
+}
+
+.container .progress h3 {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5em;
+    z-index: 1;
+    font-weight: 500;
+}
+
+/*for increasing and decreasing percentage font-size in circular progress bar*/
+.container .progress h3 span {
+    font-size: 0.65em;
+    font-weight: 400;
+}
+
+/*for text inside circular progress bar*/
+.container .progress h4 {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    text-align: center;
+    font-size: 12px;
+    color: var(--clr);
+    text-transform: uppercase;
+}
+
+.container .progress::after {
+    content: '';
+    position: absolute;
+    inset: 10px;
+    border-radius: 50%;
+    background: #222;
+}
+
+.container .progress::before {
+    content: '';
+    display: block;
+    height: 100%;
+    margin-left: 50%;
+    transform-origin: left;
+    border-radius: 0 100% 100% 0/50%;
+}
+
+.container .progress::before {
+    background: var(--clr);
+    transform:rotate(calc(((var(--i) - 50) * 0.01turn)));
+}
+
+/*if value is less than 50*/
+.container .progress.less::before{
+    background:#444;
+    transform:rotate(calc(((var(--i) - 0) * 0.01turn)));
+}
+
+/*for hiding the download button when taking jpeg image for pdf*/
+.hide-on-pdf {
+    display: none;
+}
+
+/*Level Selector*/
+
+.gauge {
+    position: relative;
+    width: 400px;
+    height: 175px;
+    background: conic-gradient(
+        rgba(255, 105, 97, 0.7) 60deg,    /* Semi-transparent Coral Red */
+        rgba(255, 223, 77, 0.7) 120deg,   /* Semi-transparent Gold */
+        rgba(144, 238, 144, 0.7) 240deg,  /* Semi-transparent Light Green */
+        rgba(255, 255, 255, 0.3) 360deg   /* Semi-transparent White */
+    );
+    border-radius: 140px 140px 20px 20px;
+    overflow: hidden;
+    border: 2px solid rgba(51, 51, 51, 0.5); /* Soft transparent border */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Classic soft shadow */
+}
+
+
+.gauge-needle {
+    position: absolute;
+    width: 4px;
+    height: 140px; 
+    background-color: black;
+    top: 5%;
+    left: 50%;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    transform-origin: bottom;
+    transition: transform 0.5s ease-out; 
+}
+
+.gauge-label {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 20px;
+    background: black;
+    border-radius: 100px 100px 0 0;
+    padding: 10px 0;
+    min-width: 50px; 
+    min-height: 20px; 
+}
+
+select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc; /* Classic border color */
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255); /* Classic background color */
+    color: black; /* Classic text color */
+    margin: 20px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s; /* Transition for background and border */
+}
+
+select:focus {
+    border-color: #6200ea; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+select:disabled {
+    background-color: #f0f0f0; /* Light gray for disabled state */
+    cursor: not-allowed;
+}
+
+.level-select {
+    display: flex;
+    align-items: center;
+    font-family: "Arial", sans-serif;
+}
+
+.level-select label {
+    font-size: 18px;
+    color: #333; /* Classic dark color */
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.level-select select {
+    font-size: 20px;
+    padding: 5px 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333; /* Classic text color */
+    font-weight: bold;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.level-select select:focus {
+    border-color: #333; /* Classic darker border on focus */
+}
+
+/*Level Selector*/
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .results-container h1 {
+        font-size: 1.6em; /* Adjust font size for smaller screens */
+    }
+
+    .results-container button {
+        padding: 10px 20px;
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+}
+
+@media print {
+    .progress {
+        position: relative;
+        height: 50px; /* Adjust height as needed */
+        background-color: #e0e0e0; /* Default background */
+    }
+    .progress::before {
+        content: '';
+        position: absolute;
+        width: var(--i);
+        height: 100%;
+        background: var(--clr);
+        transition: none; /* Disable transitions for print */
+    }
+    .progress.less::before {
+        background: #444;
+        width: var(--i);
+    }
+}
+
+/*video css*/
+
+.video-container {
+    width: 620px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f5f5f5; /* Soft Gray */
+    color:#2c3e50; /* Dark Slate Gray */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.video-player {
+    background-color: #ffffff; /* White */
+    margin-top: 20px;
+    border: 2px solid #ddd;
+    padding: 10px;
+    background-color:black;
+    border-radius: 8px;
+}
+
+video {
+    width: 100%;
+    height: auto;
+    border-radius: 4px; /* Slight rounding for aesthetics */
+}
+
+label, select {
+    font-size: 18px;
+    margin: 10px;
+}
+
+select {
+    padding: 5px;
+} 

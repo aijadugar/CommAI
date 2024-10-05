@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Speech Interface</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://kit.fontawesome.com/dd26978ca1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="header">
+        <h1 class="strong-heading">Comm AI</h1>
+    </div>
+    
+    <div class="chat-container">
+        <div class="chat-box" id="chatBox">
+            <!-- Chat messages will be appended here -->
+        </div>
+    </div>
+    <button class="speech-button" id="pulse" onclick="startRecognition()">
+        <i class="fa-solid fa-microphone-slash" id="mic-icon"></i>
+    </button>
+    <button class="submit-button" onclick="submitConversation()">Submit Conversation</button>
+    
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
