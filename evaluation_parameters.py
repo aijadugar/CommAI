@@ -101,7 +101,7 @@ def evaluate_grammar(text):
     num_words = len(text.split())
 
     if num_words == 0:
-        return 100.00  
+        return 1.00  
 
     num_uppercase = sum(1 for char in text if char.isupper())
     num_lowercase = sum(1 for char in text if char.islower())
@@ -235,7 +235,7 @@ def evaluate_text(text):
             "Conciseness": 0,
             "Sentiment": 0,
             "Engagement": 0,
-            "Grammar": 100,
+            "Grammar": 1,
             "Usage": 0,
             "Response": 0,
             "Politeness": 0
