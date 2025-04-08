@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request, jsonify
-from langchain_ollama import OllamaLLM
-from langchain_core.prompts import ChatPromptTemplate
+# from langchain_ollama import OllamaLLM
+# from langchain_core.prompts import ChatPromptTemplate
 import json
 import re
+import google.generativeai as genai
 from evaluation_parameters import evaluate_text
 from level_selector import select_level
 from grammer_spelling import evaluate_grammer_spelling
@@ -10,14 +11,12 @@ from grammer_spelling import evaluate_grammer_spelling
 app = Flask(__name__)
 
 # Chatbot setup
-template = """
-You are now conversational assistent for CommAI Project, make conversation with the user and answer the questions below in less words.
-Here is the conversation history: {context}
-Question: {question}
-Answer:
-"""
-model = OllamaLLM(model='llama3')
-prompt = ChatPromptTemplate.from_template(template)
+# template = """
+# You are now conversational assistent for CommAI Project, make conversation with the user and answer the questions below in less words.
+# Here is the conversation history: {context}
+# Question: {question}
+# Answer:
+# """
 
 @app.route('/')
 def index():
@@ -49,7 +48,7 @@ def extract_user_messages_from_file(file_path='conversations.json'):
 def results():
     # Extract user messages from the file
     user_text = extract_user_messages_from_file()
-
+    print(type(user_text))
     # Evaluate the extracted user messages
     evaluation_results = evaluate_text(user_text)
     evaluation_level = select_level(user_text)
@@ -58,6 +57,12 @@ def results():
     # Render the results page with evaluation data
     return render_template('results.html', gram_spell = grammer_spelling_evaluation, results=evaluation_results, level = evaluation_level)
 
+
+G_API_KEY = "AIzaSyC1l9rED1nJeliRvS3LtWD3IxfC_Goue0E"
+
+genai.configure(api_key=G_API_KEY)
+
+model = genai.GenerativeModel('gemini-1.5-flash-latest')
 
 @app.route('/ask', methods=['POST'])
 def ask():
@@ -69,8 +74,11 @@ def ask():
     conversation += f"\nUser: {user_input}"
 
     # Generate AI response using the model
-    result = prompt | model
-    ai_response = result.invoke({"context": conversation, "question": user_input})
+    response = model.generate_content(user_input)
+    ai_response = response.text.strip() if hasattr(response, "text") else "AI response unavailable..."
+    
+    # result = prompt | model
+    # ai_response = result.invoke({"context": conversation, "question": user_input})
 
     # Append the AI response to the conversation
     conversation += f"\nAI: {ai_response}"
